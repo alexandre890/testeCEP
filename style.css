@@ -1,0 +1,83 @@
+/**
+Teste de CEP
+2018-11-29
+Rodrigo Portillo	
+**/
+
+.wrap{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.list-card table{
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.list-card table thead tr th,
+.list-card table tbody tr td{
+	height: auto;
+	padding: 5px 10px;
+}
+.list-card table tbody tr{
+	height: auto;
+}
+
+/**
+	Lista
+**/
+.mdl-list{
+	margin: 0;
+	padding: 0;
+}
+.mdl-list .mdl-list__item{
+	height: auto;
+	min-height: 0;
+	margin: 0;
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #eeeeee;
+}
+.mdl-list .mdl-list__item:last-child{
+	border-bottom: 0;
+}
+
+/**
+	Detalhes do campo de busca
+*/
+.mdl-textfield .success{
+	color: green;
+}
+.mdl-textfield .success .mdl-textfield__input{
+	border-color: green;
+}
+
+.mdl-textfield .error{
+	color: red;
+}
+.mdl-textfield .error .mdl-textfield__error{
+	visibility: visible
+}
+.mdl-textfield .error .mdl-textfield__input{
+	border-color: red;
+}
+
+/**Cores Regiões*/
+.mdl-chip{
+	background-color: white;
+}
+.mdl-chip.norte{
+	background-color: #A1FFAD;
+}
+.mdl-chip.nordeste{
+	background-color: #FFB4D5;
+}
+.mdl-chip.sudeste{
+	background-color: #EEEEEE;
+}
+.mdl-chip.sul{
+	background-color: #33B7FF;
+}
+.mdl-chip.centro{
+	background-color: #FFBA3D;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Teste de CEP</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		
+		<link rel="stylesheet" href="style.css">
+		<script src="js/mask.js"></script>
+		<script src="js/script.js"></script>
+	</head>
+	<body ng-app="testeCEP">
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--blue-grey-50" ng-controller='checkZip'>
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<!-- Title -->
+					<span class="mdl-layout-title">Consulta de Endereços por CEP</span>
+				</div>
+			</header>
+			<div class="mdl-grid wrap">
+				<!--Formulário-->
+				<div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp form-card">
+					<div class="mdl-card__supporting-text">
+						<div class="form">
+						  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{zip_class}}">
+						    <input class="mdl-textfield__input" type="text" id="zip" ng-model="zip">
+						    <label class="mdl-textfield__label" for="zip">Digite o CEP</label>
+						    <span class="mdl-textfield__error">{{msg}}</span>
+						  </div>
+						  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="loadZip()">
+						  	Buscar por CEP
+						  </button>
+						</div>
+					</div>
+				</div>
+				<!--Endereço-->
+				<div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp form-card">
+					<div class="mdl-card__supporting-text">
+						<ul class="mdl-list">
+						  <li class="mdl-list__item">
+						    <span class="mdl-list__item-primary-content">Logradouro:</span>
+						    <span class="mdl-list__item-secondary-info">{{address.logradouro}}</span>
+						  </li>
+						  <li class="mdl-list__item">
+						    <span class="mdl-list__item-primary-content">Bairro:</span>
+						    <span class="mdl-list__item-secondary-info">{{address.bairro}}</span>
+						  </li>
+						  <li class="mdl-list__item">
+						    <span class="mdl-list__item-primary-content">Cidade:</span>
+						    <span class="mdl-list__item-secondary-info">{{address.cidade}}</span>
+						  </li>
+						  <li class="mdl-list__item">
+						    <span class="mdl-list__item-primary-content">Estado:</span>
+						    <span class="mdl-list__item-secondary-info">{{address.estado_info.nome}}</span>
+						  </li>
+						  <li class="mdl-list__item">
+						    <span class="mdl-list__item-primary-content">Região:</span>
+						    <span class="mdl-list__item-secondary-info"><span class="mdl-chip {{address.regiao_class}}"><span class="mdl-chip__text">{{address.regiao}}</span></span></span>
+						  </li>
+						</ul>
+					</div>
+				</div>
+				
+				<!--Lista-->
+				<div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp list-card">
+					<div class="mdl-card__title mdl-card--expand">
+						<h2 class="mdl-card__title-text">Últimas Consultas</h2>
+					</div>
+					<div class="mdl-card__supporting-text">
+						<table class="mdl-data-table mdl-js-data-table">
+						  <thead>
+						    <tr>
+								<th class="mdl-data-table__cell--non-numeric">CEP</th>
+								<th class="mdl-data-table__cell--non-numeric">Logradouro</th>
+								<th class="mdl-data-table__cell--non-numeric">Bairro</th>
+								<th class="mdl-data-table__cell--non-numeric">Cidade</th>
+								<th class="mdl-data-table__cell--non-numeric">Estado</th>
+								<th>Região</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr ng-repeat="data in addresses">
+						      <td class="mdl-data-table__cell--non-numeric">{{ data.cep }}</td>
+						      <td class="mdl-data-table__cell--non-numeric">{{ data.logradouro }}</td>
+						      <td class="mdl-data-table__cell--non-numeric">{{ data.bairro }}</td>
+						      <td class="mdl-data-table__cell--non-numeric">{{ data.cidade }}</td>
+						      <td class="mdl-data-table__cell--non-numeric">{{ data.estado }}</td>
+						      <td><span class="mdl-chip {{data.regiao_class}}"><span class="mdl-chip__text">{{ data.regiao }}</span></span></td>
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
