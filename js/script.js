@@ -17,7 +17,7 @@ App.controller('checkZip', function($scope, $http){
 	$scope.zip_class = "";
 	
 	$scope.norte = ['RO', 'AC', 'AM', 'RR', 'PA', 'AP', 'TO'];
-	$scope.nordeste = ['PI', 'CE', 'RN', 'PB', 'PE', 'AL', 'SE', 'BA'];
+	$scope.nordeste = ['MA', 'PI', 'CE', 'RN', 'PB', 'PE', 'AL', 'SE', 'BA'];
 	$scope.sul = ['PR', 'SC', 'RS'];
 	$scope.suldeste = ['MG', 'ES', 'RJ', 'SP'];
 	$scope.centro = ['MS', 'MT', 'GO', 'DF'];
